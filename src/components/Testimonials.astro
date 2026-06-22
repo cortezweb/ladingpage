@@ -1,0 +1,49 @@
+---
+const testimonials = [
+  {
+    quote: "La migración de nuestro sistema legacy a una arquitectura moderna con React fue impecable. Hamilton no solo escribió código limpio, sino que mejoró la arquitectura general del proyecto.",
+    author: "Carlos Mendoza",
+    role: "CTO, TechLogistics",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDR19wZA27Y7K2ACVUV5_3muLbh8G8MYy-6EY7V4XtD493BVcTldRtwshDbIgOwfnyau11jNsHHHTCoHIDLmbihfi4pfvvtfgpDizVGk4KOlawSXAmRR_TaNF7BGEnxCA9OvbqBPIRzMXkk2RC4SuvKCaG3gYN718AGmANsXUJvq-VauhalIJYREB78cFcnBhdCvDzAINHos-Ykgmw8JF15D8A-ErlYBvzaw7DJQCI_9FyCJ2CFpOxih-KVhjx98N__hoNBVRTE1JA",
+    alt: "Retrato corporativo de Carlos Mendoza, gerente de tecnología."
+  },
+  {
+    quote: "El nivel de atención al detalle en la UI de nuestra tienda en línea superó mis expectativas. El sitio es rapidísimo y las conversiones aumentaron un 30% en el primer mes.",
+    author: "Elena Restrepo",
+    role: "Fundadora, Aura Boutique",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDoA03_N4P_-ZytXncPbwvoPezpTSUQSApMtuTg_F8zP1TiV98u4GcMEXFKKhjkdOiOIRuEWnFm6lg2U6olztkw5vEaffty-wUIwoGOAlQBwjl_5jtZJ_EtD5QoHwClva6PSn7714fcjPxf5YzAwoXzVNlNtBhLZ6eURmrwaUqQOjKNJgteQlStSXjrMbyefr0SWIEjhr47rKJ9gQQb1BCAx_aJOGgXnQoDR6JvSAavfa_ffF_dR2YqUhQD40HMR2Tq1fSvSQ4gN_U",
+    alt: "Retrato profesional de Elena Restrepo, empresaria."
+  }
+];
+---
+<section class="py-section-gap bg-surface-container-lowest border-t border-outline-variant/20">
+  <div class="text-center mb-16">
+    <h2 class="font-headline-xl text-headline-xl text-on-surface mb-4">Impacto Real</h2>
+    <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">
+      Lo que dicen los clientes sobre el nivel de detalle y compromiso en cada entrega.
+    </p>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+    {testimonials.map(item => (
+      <div class="bg-surface border border-outline-variant/30 p-8 rounded-2xl relative shadow-sm hover:shadow-soft transition-all duration-300">
+        <span class="material-symbols-outlined absolute top-6 right-6 text-primary-fixed-dim text-4xl" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+        <p class="font-body-lg text-body-lg text-on-surface mb-6 relative z-10 italic">
+          "{item.quote}"
+        </p>
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-full bg-tertiary-fixed overflow-hidden">
+            <img 
+              alt={item.alt} 
+              class="w-full h-full object-cover" 
+              src={item.image}
+            />
+          </div>
+          <div>
+            <div class="font-label-md text-label-md text-on-surface">{item.author}</div>
+            <div class="font-label-sm text-label-sm text-on-surface-variant">{item.role}</div>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

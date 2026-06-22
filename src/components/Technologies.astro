@@ -1,0 +1,384 @@
+---
+// src/components/Technologies.astro
+
+const categories = [
+  { id: "frontend", name: "Front End" },
+  { id: "backend", name: "Backend" },
+  { id: "apps", name: "App Development" },
+  { id: "database", name: "Database" },
+  { id: "devops", name: "DevOps and Cloud" },
+  { id: "payment", name: "Payment" },
+  { id: "design", name: "Product Design" }
+];
+
+const technologies = {
+  frontend: [
+    {
+      name: "React.js",
+      svg: `<svg viewBox="0 0 24 24" class="w-12 h-12 text-white" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="2" fill="currentColor"/>
+        <ellipse cx="12" cy="12" rx="10" ry="4.5" transform="rotate(0 12 12)"/>
+        <ellipse cx="12" cy="12" rx="10" ry="4.5" transform="rotate(60 12 12)"/>
+        <ellipse cx="12" cy="12" rx="10" ry="4.5" transform="rotate(120 12 12)"/>
+      </svg>`
+    },
+    {
+      name: "Next.js",
+      svg: `<svg viewBox="0 0 24 24" class="w-12 h-12 text-white" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10" stroke="currentColor"/>
+        <path d="M9 17V7l7.5 10H15L9.5 9.5" />
+      </svg>`
+    },
+    {
+      name: "JavaScript",
+      svg: `<svg viewBox="0 0 24 24" class="w-12 h-12 text-white" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2"/>
+        <path d="M15 15c0 .8-.5 1.5-1.5 1.5s-1.5-.7-1.5-1.5M18 11.5c0 2-1 3.5-3 3.5m3-3.5V15" />
+      </svg>`
+    },
+    {
+      name: "React Ionic",
+      svg: `<svg viewBox="0 0 24 24" class="w-12 h-12 text-white" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10" />
+        <circle cx="12" cy="12" r="3" fill="currentColor" />
+        <circle cx="12" cy="7" r="1" fill="currentColor" />
+      </svg>`
+    },
+    {
+      name: "TypeScript",
+      svg: `<svg viewBox="0 0 24 24" class="w-12 h-12 text-white" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2"/>
+        <path d="M9 9h4M11 9v8M15 15c0 .8.5 1.5 1.5 1.5s1.5-.7 1.5-1.5v-4" stroke-linecap="round"/>
+      </svg>`
+    }
+  ],
+  backend: [
+    {
+      name: "Node.js",
+      svg: `<svg viewBox="0 0 24 24" class="w-12 h-12 text-white" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2L4 7v10l8 5 8-5V7L12 2z" />
+        <path d="M12 2v20M4 7l8 5 8-5M12 12l8 5M4 17l8-5" />
+      </svg>`
+    },
+    {
+      name: "Express.js",
+      svg: `<svg viewBox="0 0 24 24" class="w-12 h-12 text-white" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2"/>
+        <path d="M7 9h4v2H7v2h4v2H7M14 9h3v6h-3M17 12h-3" />
+      </svg>`
+    },
+    {
+      name: "Python",
+      svg: `<svg viewBox="0 0 24 24" class="w-12 h-12 text-white" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2zm-2 5a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm4 10a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+        <path d="M12 8v8M9 11h6" />
+      </svg>`
+    },
+    {
+      name: "Django",
+      svg: `<svg viewBox="0 0 24 24" class="w-12 h-12 text-white" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2"/>
+        <path d="M9 7v10h3c2 0 3-1 3-3V10c0-2-1-3-3-3H9zm3 3v4" />
+      </svg>`
+    },
+    {
+      name: "Go (Golang)",
+      svg: `<svg viewBox="0 0 24 24" class="w-12 h-12 text-white" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <ellipse cx="12" cy="12" rx="8" ry="5" />
+        <circle cx="9" cy="10" r="1" fill="currentColor"/>
+        <circle cx="15" cy="10" r="1" fill="currentColor"/>
+        <path d="M11 15s1 1 2 0" />
+      </svg>`
+    }
+  ],
+  apps: [
+    {
+      name: "React Native",
+      svg: `<svg viewBox="0 0 24 24" class="w-12 h-12 text-white" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+        <ellipse cx="12" cy="12" rx="10" ry="3.8" transform="rotate(30 12 12)"/>
+        <ellipse cx="12" cy="12" rx="10" ry="3.8" transform="rotate(90 12 12)"/>
+        <ellipse cx="12" cy="12" rx="10" ry="3.8" transform="rotate(150 12 12)"/>
+      </svg>`
+    },
+    {
+      name: "Flutter",
+      svg: `<svg viewBox="0 0 24 24" class="w-12 h-12 text-white" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 2L7 9l5 5 7-7zM19 12l-7 7-3-3 7-7z" />
+      </svg>`
+    },
+    {
+      name: "Swift",
+      svg: `<svg viewBox="0 0 24 24" class="w-12 h-12 text-white" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 19c6 0 10-4 12-9s1-7 0-8c2 4 4 8 2 12s-7 5-14 5z"/>
+        <path d="M7 16c4 0 7-3 8-7s1-5 0-6c1 3 2 6 1 9s-5 4-9 4z"/>
+      </svg>`
+    },
+    {
+      name: "Kotlin",
+      svg: `<svg viewBox="0 0 24 24" class="w-12 h-12 text-white" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2" />
+        <path d="M3 21L21 3M3 12h9M12 12L3 3" />
+      </svg>`
+    },
+    {
+      name: "Ionic",
+      svg: `<svg viewBox="0 0 24 24" class="w-12 h-12 text-white" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10" />
+        <circle cx="12" cy="12" r="4" stroke-dasharray="4 2"/>
+      </svg>`
+    }
+  ],
+  database: [
+    {
+      name: "PostgreSQL",
+      svg: `<svg viewBox="0 0 24 24" class="w-12 h-12 text-white" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        <path d="M12 6v10M9 9h6" />
+      </svg>`
+    },
+    {
+      name: "MongoDB",
+      svg: `<svg viewBox="0 0 24 24" class="w-12 h-12 text-white" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2c0 0-5 4-5 10s4 10 5 10 5-4 5-10S12 2 12 2z"/>
+        <path d="M12 2v20" />
+      </svg>`
+    },
+    {
+      name: "Redis",
+      svg: `<svg viewBox="0 0 24 24" class="w-12 h-12 text-white" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 6l8-3 8 3-8 3-8-3zm0 6l8-3 8 3-8 3-8-3zm0 6l8-3 8 3-8 3-8-3z" />
+        <path d="M4 6v12M20 6v12M12 9v9" />
+      </svg>`
+    },
+    {
+      name: "MySQL",
+      svg: `<svg viewBox="0 0 24 24" class="w-12 h-12 text-white" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <ellipse cx="12" cy="6" rx="8" ry="3"/>
+        <path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/>
+        <path d="M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/>
+      </svg>`
+    },
+    {
+      name: "SQLite",
+      svg: `<svg viewBox="0 0 24 24" class="w-12 h-12 text-white" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2" />
+        <path d="M7 15c0-1.7 2.2-3 5-3s5 1.3 5 3v2c0 1.7-2.2 3-5 3s-5-1.3-5-3v-2z" />
+        <ellipse cx="12" cy="15" rx="5" ry="1.5" />
+      </svg>`
+    }
+  ],
+  devops: [
+    {
+      name: "AWS",
+      svg: `<svg viewBox="0 0 24 24" class="w-12 h-12 text-white" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 16c2 2 6 3 12 0"/>
+        <path d="M16 14l2 2-2 2" />
+        <path d="M12 4L4 8l8 4 8-4-8-4z"/>
+      </svg>`
+    },
+    {
+      name: "Docker",
+      svg: `<svg viewBox="0 0 24 24" class="w-12 h-12 text-white" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 11.5c0-1.5-1.5-2-3-2H4c-1.5 0-3 .5-3 2 0 2.5 3.5 3 3.5 3h14c0 0 3.5-.5 3.5-3z"/>
+        <rect x="7" y="5" width="2" height="2" rx="0.5" />
+        <rect x="10" y="5" width="2" height="2" rx="0.5" />
+        <rect x="13" y="5" width="2" height="2" rx="0.5" />
+        <rect x="10" y="2" width="2" height="2" rx="0.5" />
+      </svg>`
+    },
+    {
+      name: "GitHub Actions",
+      svg: `<svg viewBox="0 0 24 24" class="w-12 h-12 text-white" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2" />
+        <path d="M9 16l3-3 3 3M12 8v5" />
+      </svg>`
+    },
+    {
+      name: "Linux",
+      svg: `<svg viewBox="0 0 24 24" class="w-12 h-12 text-white" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2c-3.3 0-6 2.7-6 6 0 2.8 1.8 5.1 4.3 5.8C10 15 10 17 9.5 19H14.5c-.5-2-.5-4-.8-5.2C16.2 13.1 18 10.8 18 8c0-3.3-2.7-6-6-6z"/>
+      </svg>`
+    },
+    {
+      name: "Vercel",
+      svg: `<svg viewBox="0 0 24 24" class="w-12 h-12 text-white" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2L2 20h20L12 2z" />
+      </svg>`
+    }
+  ],
+  payment: [
+    {
+      name: "Stripe",
+      svg: `<svg viewBox="0 0 24 24" class="w-12 h-12 text-white" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="5" width="18" height="14" rx="2" />
+        <path d="M9 13.5c0 .8.6 1.5 1.5 1.5.8 0 1.5-.5 1.5-1.5v-3c0-.8-.7-1.5-1.5-1.5-.9 0-1.5.7-1.5 1.5" />
+      </svg>`
+    },
+    {
+      name: "PayPal",
+      svg: `<svg viewBox="0 0 24 24" class="w-12 h-12 text-white" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10 4h5c2.5 0 4 1.5 3.5 4s-3 4-5.5 4h-3L8 20H4L7 4h3z"/>
+        <path d="M12 7h5c2.5 0 4 1.5 3.5 4s-3 4-5.5 4h-3L10 23H6L9 7h3z" opacity="0.6"/>
+      </svg>`
+    },
+    {
+      name: "MercadoPago",
+      svg: `<svg viewBox="0 0 24 24" class="w-12 h-12 text-white" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M7 10h10M9 6v8a3 3 0 0 0 6 0V6" />
+        <rect x="3" y="3" width="18" height="18" rx="2" />
+      </svg>`
+    },
+    {
+      name: "Apple Pay",
+      svg: `<svg viewBox="0 0 24 24" class="w-12 h-12 text-white" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 20c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8zm0-13c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5z" />
+        <path d="M12 10V9M12 15v-3"/>
+      </svg>`
+    },
+    {
+      name: "Google Pay",
+      svg: `<svg viewBox="0 0 24 24" class="w-12 h-12 text-white" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 12a8 8 0 1 1 16 0 8 8 0 0 1-16 0zm8-5c-2.8 0-5 2.2-5 5h10c0-2.8-2.2-5-5-5z" />
+      </svg>`
+    }
+  ],
+  design: [
+    {
+      name: "Figma",
+      svg: `<svg viewBox="0 0 24 24" class="w-12 h-12 text-white" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 5a2.5 2.5 0 0 1 0 5 2.5 2.5 0 0 1-2.5-2.5A2.5 2.5 0 0 1 9 5z"/>
+        <path d="M9 10a2.5 2.5 0 0 1 0 5 2.5 2.5 0 0 1-2.5-2.5A2.5 2.5 0 0 1 9 10z"/>
+        <path d="M9 15a2.5 2.5 0 0 1 0 5 2.5 2.5 0 0 1-2.5-2.5A2.5 2.5 0 0 1 9 15z"/>
+        <path d="M14 10a2.5 2.5 0 0 1 0-5v5z"/>
+        <path d="M14 15a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5v5z"/>
+      </svg>`
+    },
+    {
+      name: "Adobe XD",
+      svg: `<svg viewBox="0 0 24 24" class="w-12 h-12 text-white" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2" />
+        <path d="M6 8l4 8M10 8l-4 8M14 8h2a3 3 0 0 1 0 6h-2V8zm2 3h-2v3h2" />
+      </svg>`
+    },
+    {
+      name: "Photoshop",
+      svg: `<svg viewBox="0 0 24 24" class="w-12 h-12 text-white" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2" />
+        <path d="M7 8h3c1.7 0 3 1.3 3 3s-1.3 3-3 3H7V8zm3 3H7v3h3M15 11c0-.8.5-1.5 1.5-1.5s1.5.7 1.5 1.5v3" />
+      </svg>`
+    },
+    {
+      name: "Illustrator",
+      svg: `<svg viewBox="0 0 24 24" class="w-12 h-12 text-white" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2" />
+        <path d="M7 16V8M13 14V8M13 11c0-.8.5-1.5 1.5-1.5s1.5.7 1.5 1.5v5" />
+      </svg>`
+    },
+    {
+      name: "Tailwind CSS",
+      svg: `<svg viewBox="0 0 24 24" class="w-12 h-12 text-white" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3c-3 0-5 1.5-6 4.5 1.2-1.5 2.7-2.2 4.5-2.2 2.5 0 4 1.5 5 4.5 1-3.5-1-6.8-3.5-6.8zm-6 6.8c-3 0-5 1.5-6 4.5 1.2-1.5 2.7-2.2 4.5-2.2 2.5 0 4 1.5 5 4.5 1-3.5-1-6.8-3.5-6.8z" />
+      </svg>`
+    }
+  ]
+};
+---
+
+<section class="py-section-gap px-gutter bg-[#0b1c30] text-white relative overflow-hidden rounded-3xl my-12" id="technologies">
+  <!-- Sutil gradiente de fondo para imitar la esquina superior derecha verde, pero en azul/indigo -->
+  <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] pointer-events-none"></div>
+  <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary-container/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+  <div class="max-w-container mx-auto relative z-10">
+    <!-- Encabezado -->
+    <div class="text-center mb-12">
+      <span class="font-label-md text-label-md text-primary-fixed-dim tracking-widest uppercase block mb-3">TECNOLOGÍAS</span>
+      <h2 class="font-headline-xl text-headline-xl text-white max-w-3xl mx-auto leading-tight">
+        <span class="text-primary-fixed-dim">Experiencia Tecnológica</span> Profunda
+        <br class="hidden md:block" />
+        que Impulsa la Innovación Real
+      </h2>
+    </div>
+
+    <!-- Pestañas (Tabs) de Categorías -->
+    <div class="flex justify-start lg:justify-center overflow-x-auto pb-4 mb-12 gap-3 scrollbar-hide -mx-6 px-6 lg:mx-0 lg:px-0">
+      {categories.map((cat, index) => (
+        <button
+          type="button"
+          data-category-tab={cat.id}
+          class={`px-6 py-3 rounded-full font-label-md text-label-md whitespace-nowrap transition-all duration-300 border cursor-pointer ${
+            index === 0
+              ? "bg-white text-[#0b1c30] border-white font-bold shadow-soft"
+              : "bg-[#0b1c30]/40 text-on-primary-container/80 border-outline-variant/20 hover:border-white/50 hover:text-white"
+          }`}
+        >
+          {cat.name}
+        </button>
+      ))}
+    </div>
+
+    <!-- Contenedor de Grillas de Tecnologías -->
+    <div class="relative min-h-[220px]">
+      {Object.entries(technologies).map(([catId, techList], index) => (
+        <div
+          data-tech-content={catId}
+          class={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 transition-all duration-500 ${
+            index === 0
+              ? "opacity-100 scale-100 pointer-events-auto"
+              : "opacity-0 scale-95 pointer-events-none absolute inset-0"
+          }`}
+        >
+          {techList.map(tech => (
+            <div class="flex flex-col items-center justify-center bg-[#071324]/60 border border-outline-variant/10 rounded-2xl p-8 hover:border-primary-fixed-dim/40 hover:bg-[#071324]/90 transition-all duration-300 group">
+              <div class="mb-4 transform group-hover:scale-110 transition-transform duration-300" set:html={tech.svg} />
+              <span class="font-label-md text-label-md text-on-primary-container group-hover:text-white transition-colors duration-300 text-center">
+                {tech.name}
+              </span>
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  function setupTechnologiesTabs() {
+    const tabs = document.querySelectorAll("[data-category-tab]");
+    const contents = document.querySelectorAll("[data-tech-content]");
+
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        const targetCategory = tab.getAttribute("data-category-tab");
+
+        // Actualizar pestañas activas/inactivas
+        tabs.forEach(t => {
+          if (t === tab) {
+            t.classList.remove("bg-[#0b1c30]/40", "text-on-primary-container/80", "border-outline-variant/20");
+            t.classList.add("bg-white", "text-[#0b1c30]", "border-white", "font-bold", "shadow-soft");
+          } else {
+            t.classList.remove("bg-white", "text-[#0b1c30]", "border-white", "font-bold", "shadow-soft");
+            t.classList.add("bg-[#0b1c30]/40", "text-on-primary-container/80", "border-outline-variant/20");
+          }
+        });
+
+        // Alternar visualización del contenido
+        contents.forEach(content => {
+          const categoryId = content.getAttribute("data-tech-content");
+          if (categoryId === targetCategory) {
+            content.classList.remove("opacity-0", "scale-95", "pointer-events-none", "absolute", "inset-0");
+            content.classList.add("opacity-100", "scale-100", "pointer-events-auto");
+          } else {
+            content.classList.remove("opacity-100", "scale-100", "pointer-events-auto");
+            content.classList.add("opacity-0", "scale-95", "pointer-events-none", "absolute", "inset-0");
+          }
+        });
+      });
+    });
+  }
+
+  // Correr en la carga inicial y soporte de transiciones de Astro (si aplica)
+  setupTechnologiesTabs();
+  document.addEventListener("astro:after-swap", setupTechnologiesTabs);
+</script>

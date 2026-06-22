@@ -1,0 +1,152 @@
+---
+const services = [
+  {
+    title: "Desarrollo Web",
+    description: "Sitios web corporativos, landing pages y aplicaciones SPA/MPA con arquitecturas modernas y SEO optimizado.",
+    icon: "code",
+    link: "web"
+  },
+  {
+    title: "App Móvil",
+    description: "Desarrollo multiplataforma para iOS y Android asegurando rendimiento nativo y experiencias fluidas.",
+    icon: "smartphone",
+    link: "mobile"
+  },
+  {
+    title: "E-commerce",
+    description: "Tiendas virtuales personalizadas, integraciones de pago seguras y paneles de administración intuitivos.",
+    icon: "shopping_cart",
+    link: "ecommerce"
+  },
+  {
+    title: "Sistemas POS",
+    description: "Puntos de venta a medida para gestión de inventario, facturación y reportes en tiempo real.",
+    icon: "point_of_sale",
+    link: "pos"
+  }
+];
+---
+<section class="py-section-gap" id="servicios">
+  <div class="max-w-7xl mx-auto px-6">
+    
+    <!-- Focus Box Tag (My Specialization style) -->
+    <div class="relative w-max mb-3 animate-fade-in">
+      <!-- Top Left Corner -->
+      <span class="absolute top-0 left-0 w-2.5 h-2.5 border-t-2 border-l-2 border-primary"></span>
+      <!-- Top Right Corner -->
+      <span class="absolute top-0 right-0 w-2.5 h-2.5 border-t-2 border-r-2 border-primary"></span>
+      <!-- Bottom Left Corner -->
+      <span class="absolute bottom-0 left-0 w-2.5 h-2.5 border-b-2 border-l-2 border-primary"></span>
+      <!-- Bottom Right Corner -->
+      <span class="absolute bottom-0 right-0 w-2.5 h-2.5 border-b-2 border-r-2 border-primary"></span>
+      
+      <span class="block px-4 py-1.5 text-[10px] font-bold uppercase tracking-wider text-primary select-none">
+        MI ESPECIALIDAD
+      </span>
+    </div>
+
+    <!-- Editorial Header Row -->
+    <div class="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 animate-fade-in">
+      <!-- Faint watermark background -->
+      <div class="absolute -top-12 -left-6 text-[100px] font-black text-on-surface/5 select-none pointer-events-none uppercase font-plus-jakarta leading-none tracking-wider">
+        SERVICIOS
+      </div>
+      
+      <h2 class="font-headline-xl text-headline-xl text-on-surface relative z-10 leading-none">
+        <span class="gradient-text">Servicios</span> que Ofrezco.
+      </h2>
+      
+      <!-- Action button on the right -->
+      <a href="#contacto" class="bg-primary-container hover:bg-primary text-on-primary font-semibold text-xs px-6 py-3 rounded-full hover:-translate-y-0.5 active:translate-y-0 transition-all shadow-soft flex items-center gap-1.5 cursor-pointer z-10 w-max">
+        Ver Todos
+        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+      </a>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {services.map(service => (
+        <div class="services-card relative bg-surface-bright border border-outline-variant/25 rounded-2xl p-8 hover:shadow-elevated hover:border-primary/20 transition-all duration-300 group overflow-hidden text-left flex flex-col justify-between min-h-[300px]">
+          <!-- Left accent colored bar -->
+          <div class="absolute left-0 top-12 w-[5px] h-12 bg-primary rounded-r-md group-hover:h-16 transition-all duration-300"></div>
+          
+          <div>
+            <!-- Icon circular container -->
+            <div class="w-12 h-12 rounded-full bg-white border border-outline-variant/15 flex items-center justify-center text-primary mb-6 shadow-soft group-hover:scale-105 transition-transform">
+              <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">{service.icon}</span>
+            </div>
+            
+            <!-- Title -->
+            <h3 class="font-headline-md text-headline-md text-on-surface mb-3 group-hover:text-primary transition-colors">
+              {service.title}
+            </h3>
+            
+            <!-- Description -->
+            <p class="font-body-md text-body-md text-on-surface-variant text-sm leading-relaxed">
+              {service.description}
+            </p>
+          </div>
+
+          <!-- Bottom Action link (Learn more) -->
+          <div class="pt-6">
+            <button data-project={service.link} class="services-cta-btn flex items-center gap-1 text-xs font-bold text-primary hover:underline cursor-pointer select-none">
+              Saber más
+              <span class="material-symbols-outlined text-sm font-bold transition-transform group-hover:translate-x-1">arrow_forward</span>
+            </button>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  // Sincronización del botón "Saber más" para redirigir y pre-rellenar el formulario
+  const servicesBtns = document.querySelectorAll('.services-cta-btn');
+  servicesBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const projectType = btn.getAttribute('data-project');
+      const select = document.getElementById('type-select') as HTMLSelectElement;
+      const descTextarea = document.getElementById('desc-textarea') as HTMLTextAreaElement;
+      const nameInput = document.getElementById('name-input') as HTMLInputElement;
+
+      if (select) {
+        if (projectType === 'ecommerce') select.value = 'ecommerce';
+        else if (projectType === 'pos') select.value = 'pos';
+        else if (projectType === 'mobile') select.value = 'mobile';
+        else if (projectType === 'web') select.value = 'web';
+        
+        // Trigger select change event for WhatsApp link updating
+        select.dispatchEvent(new Event('change'));
+      }
+
+      if (descTextarea) {
+        if (projectType === 'ecommerce') {
+          descTextarea.value = "Hola Hamilton, me interesa cotizar una plataforma de E-Commerce Premium. Quisiera saber más sobre los costos y tiempos de entrega.";
+        } else if (projectType === 'pos') {
+          descTextarea.value = "Hola Hamilton, estoy interesado en un Sistema POS Cloud para mi negocio. Me gustaría programar una demo y conocer las opciones.";
+        } else if (projectType === 'mobile') {
+          descTextarea.value = "Hola Hamilton, me gustaría cotizar el desarrollo de una App Móvil con rutas y geolocalización. Deseo recibir más detalles.";
+        } else if (projectType === 'web') {
+          descTextarea.value = "Hola Hamilton, me interesa cotizar el desarrollo de un Sitio Web Profesional. Quisiera agendar una reunión para conversar.";
+        }
+        // Trigger textarea input event for WhatsApp link updating
+        descTextarea.dispatchEvent(new Event('input'));
+      }
+
+      // Scroll to contact form smoothly
+      const contactSection = document.getElementById('contacto');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+
+      // Focus name field
+      if (nameInput) {
+        setTimeout(() => {
+          nameInput.focus();
+        }, 800); // Wait for scroll animation to complete
+      }
+    });
+  });
+</script>

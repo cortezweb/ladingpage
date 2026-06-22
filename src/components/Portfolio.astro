@@ -1,0 +1,199 @@
+---
+const projects = [
+  {
+    num: "01",
+    category: "01 / DESARROLLO WEB & E-COMMERCE",
+    title: "PLATAFORMAS DE COMERCIO DE ALTO RENDIMIENTO.",
+    description: "Desarrollamos tiendas virtuales a medida optimizadas para conversiones inmediatas. Arquitecturas headless veloces, pasarelas de pago globales integradas y flujos de usuario diseñados para elevar el posicionamiento de marca.",
+    image: "/ecommerce_mockup.png",
+    bgShapeColor: "bg-[#F5C453]", // Gold shape
+    bgShapeRotate: "rotate-[-5deg]",
+    bgShapeHoverRotate: "group-hover:rotate-[-2deg]",
+    ctaText: "Cotizar E-Commerce",
+    ctaLink: "ecommerce",
+    badges: [
+      { text: "Nx", color: "bg-black text-white", title: "Next.js" },
+      { text: "Rt", color: "bg-[#20232A] text-[#61DAFB]", title: "React" },
+      { text: "St", color: "bg-[#635BFF] text-white", title: "Stripe" },
+      { text: "As", color: "bg-[#FF5A00] text-white", title: "Astro" }
+    ],
+    alternate: false
+  },
+  {
+    num: "02",
+    category: "02 / APLICACIONES MÓVILES NATIVAS",
+    title: "EXPERIENCIAS MÓVILES DE ALTA ESCALABILIDAD.",
+    description: "Diseñamos y programamos aplicaciones móviles nativas y multiplataforma con geolocalización avanzada, trazado de rutas GPS, notificaciones automáticas y pagos móviles. Ideales para empresas de logística, despachos y servicios en tiempo real.",
+    image: "/uber_mockup.png",
+    bgShapeColor: "bg-[#49B5A6]", // Teal shape
+    bgShapeRotate: "rotate-[5deg]",
+    bgShapeHoverRotate: "group-hover:rotate-[2deg]",
+    ctaText: "Cotizar App Móvil",
+    ctaLink: "mobile",
+    badges: [
+      { text: "Rn", color: "bg-[#0b1c30] text-[#61DAFB]", title: "React Native" },
+      { text: "Fb", color: "bg-[#FFCA28] text-[#0b1c30]", title: "Firebase" },
+      { text: "Gm", color: "bg-[#34A853] text-white", title: "Google Maps" },
+      { text: "Io", color: "bg-[#2A2F35] text-white", title: "iOS / Android" }
+    ],
+    alternate: true
+  },
+  {
+    num: "03",
+    category: "03 / SISTEMAS EMPRESARIALES CLOUD",
+    title: "POS & DASHBOARDS EN TIEMPO REAL.",
+    description: "Software de punto de venta (POS) y control de inventario basado en la nube. Reportes financieros automatizados, sincronización local y de red, y paneles táctiles interactivos de administración unificada.",
+    image: "/pos_mockup.png",
+    bgShapeColor: "bg-[#E97652]", // Coral shape
+    bgShapeRotate: "rotate-[-4deg]",
+    bgShapeHoverRotate: "group-hover:rotate-[-1deg]",
+    ctaText: "Cotizar Sistema POS",
+    ctaLink: "pos",
+    badges: [
+      { text: "Vu", color: "bg-[#41B883] text-[#35495E]", title: "Vue.js" },
+      { text: "Nd", color: "bg-[#339933] text-white", title: "Node.js" },
+      { text: "Pg", color: "bg-[#336791] text-white", title: "PostgreSQL" },
+      { text: "Ap", color: "bg-[#007acc] text-white", title: "REST API" }
+    ],
+    alternate: false
+  }
+];
+---
+
+<section class="py-section-gap border-t border-outline-variant/20" id="portafolio">
+  <div class="max-w-7xl mx-auto px-6">
+    
+    <!-- Section Title -->
+    <div class="mb-20 max-w-2xl text-left animate-fade-in">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container border border-outline-variant/30 text-primary text-xs font-semibold mb-4">
+        <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+        Portafolio
+      </div>
+      <h2 class="font-headline-xl text-headline-xl text-on-surface">
+        Trabajo <span class="gradient-text">Destacado.</span>
+      </h2>
+    </div>
+
+    <!-- Editorial Showcase Layout -->
+    <div class="space-y-32">
+      {projects.map((project) => (
+        <div class="project-block group flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+          
+          <!-- Collage Side (W-Full, 1/2 lg) -->
+          <div class={`w-full lg:w-1/2 flex justify-center items-center relative min-h-[320px] sm:min-h-[400px] ${project.alternate ? 'lg:order-last' : ''}`}>
+            <!-- Colored organic shape background -->
+            <div class={`absolute w-[85%] h-[80%] ${project.bgShapeColor} rounded-[40px] ${project.bgShapeRotate} ${project.bgShapeHoverRotate} shadow-soft transition-transform duration-500 ease-out`}></div>
+            
+            <!-- Mockup container -->
+            <div class="relative w-[90%] max-w-[460px] aspect-[4/3] rounded-2xl overflow-hidden shadow-elevated border border-white/10 p-2 bg-slate-950/40 transform hover:scale-103 transition-transform duration-500 ease-out z-10 flex items-center justify-center">
+              <img 
+                src={project.image} 
+                alt={`Mockup del proyecto ${project.title}`} 
+                class="w-full h-full object-cover rounded-xl"
+              />
+            </div>
+          </div>
+
+          <!-- Details Side (W-Full, 1/2 lg) -->
+          <div class="w-full lg:w-1/2 space-y-6 relative text-left">
+            <!-- Background watermark number -->
+            <div class="absolute -top-16 -left-8 text-[140px] font-black text-on-surface/5 select-none pointer-events-none font-plus-jakarta leading-none">{project.num}</div>
+            
+            <!-- Category Header row -->
+            <div class="flex items-center justify-between border-b border-outline-variant/20 pb-4 mb-4">
+              <span class="text-xs font-bold uppercase tracking-wider text-primary">{project.category}</span>
+              <div class="w-10 h-10 rounded-full border border-outline-variant/40 text-on-surface-variant flex items-center justify-center group-hover:border-primary group-hover:text-primary transition-colors cursor-pointer select-none">
+                <span class="material-symbols-outlined text-lg">arrow_forward</span>
+              </div>
+            </div>
+
+            <!-- Heading -->
+            <h3 class="font-headline-lg text-2xl sm:text-3xl text-on-surface font-extrabold tracking-tight leading-tight flex items-start gap-1">
+              <span class="text-primary font-serif text-3xl leading-none">“</span>
+              {project.title}
+            </h3>
+            
+            <!-- Description -->
+            <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed text-base">
+              {project.description}
+            </p>
+
+            <!-- Badges & Tools (Ps/Ai Style) -->
+            <div class="flex items-center gap-4 pt-4">
+              <div class="flex gap-2.5">
+                {project.badges.map((badge) => (
+                  <div 
+                    class={`w-10 h-10 rounded-lg ${badge.color} font-extrabold flex items-center justify-center text-sm shadow-soft cursor-default select-none border border-white/5 transition-transform hover:scale-105`} 
+                    title={badge.title}
+                  >
+                    {badge.text}
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <!-- Action Button -->
+            <div class="pt-4">
+              <button 
+                data-project={project.ctaLink} 
+                class="portfolio-cta-btn inline-flex items-center gap-2 bg-primary-container text-on-primary font-semibold text-xs px-6 py-3.5 rounded-full hover:bg-primary transition-all active:scale-95 cursor-pointer shadow-soft"
+              >
+                {project.ctaText}
+                <span class="material-symbols-outlined text-sm">payments</span>
+              </button>
+            </div>
+
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  // Dynamic form link integration (similar to Hero CTAs)
+  const portfolioBtns = document.querySelectorAll('.portfolio-cta-btn');
+  portfolioBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const projectType = btn.getAttribute('data-project');
+      const select = document.getElementById('type-select') as HTMLSelectElement;
+      const descTextarea = document.getElementById('desc-textarea') as HTMLTextAreaElement;
+      const nameInput = document.getElementById('name-input') as HTMLInputElement;
+
+      if (select) {
+        if (projectType === 'ecommerce') select.value = 'ecommerce';
+        else if (projectType === 'pos') select.value = 'pos';
+        else if (projectType === 'mobile') select.value = 'mobile';
+        
+        // Trigger select change event for WhatsApp link updating
+        select.dispatchEvent(new Event('change'));
+      }
+
+      if (descTextarea) {
+        if (projectType === 'ecommerce') {
+          descTextarea.value = "Hola Hamilton, me interesa cotizar una plataforma de E-Commerce Premium. Quisiera saber más sobre los costos y tiempos de entrega.";
+        } else if (projectType === 'pos') {
+          descTextarea.value = "Hola Hamilton, estoy interesado en un Sistema POS Cloud para mi negocio. Me gustaría programar una demo y conocer las opciones.";
+        } else if (projectType === 'mobile') {
+          descTextarea.value = "Hola Hamilton, me gustaría cotizar el desarrollo de una App Móvil con rutas y geolocalización. Deseo recibir más detalles.";
+        }
+        // Trigger textarea input event for WhatsApp link updating
+        descTextarea.dispatchEvent(new Event('input'));
+      }
+
+      // Scroll to contact form smoothly
+      const contactSection = document.getElementById('contacto');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+
+      // Focus name field
+      if (nameInput) {
+        setTimeout(() => {
+          nameInput.focus();
+        }, 800); // Wait for scroll animation to complete
+      }
+    });
+  });
+</script>

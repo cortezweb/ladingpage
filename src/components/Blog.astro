@@ -1,0 +1,145 @@
+---
+const featuredPost = {
+  title: "Por qué elegimos Astro para construir sitios web de alto rendimiento en 2026",
+  excerpt: "Una mirada profunda al renderizado parcial (Islands Architecture), la optimización de assets y cómo reducir el tiempo de interactividad a cero para ofrecer experiencias web ultrarrápidas y fluidas.",
+  category: "INGENIERÍA",
+  date: "Junio 12, 2026",
+  comments: "2 comentarios",
+  image: "/blog_astro.png",
+  link: "#"
+};
+
+const secondaryPosts = [
+  {
+    title: "Dominando Tailwind CSS v4: Del JIT a la configuración nativa en CSS",
+    category: "DESARROLLO",
+    date: "Mayo 28, 2026",
+    comments: "0 comentarios",
+    image: "/blog_tailwind.png",
+    link: "#"
+  },
+  {
+    title: "Principios de UI/UX para ingenieros: Diseñando para la conversión",
+    category: "UI/UX",
+    date: "Mayo 15, 2026",
+    comments: "3 comentarios",
+    image: "/blog_ui_ux.png",
+    link: "#"
+  }
+];
+
+const horizontalPost = {
+  title: "Estrategias de Growth: Cómo escalar tu negocio digital de forma orgánica",
+  category: "ESTRATEGIA",
+  date: "Abril 30, 2026",
+  comments: "5 comentarios",
+  image: "/blog_growth.png",
+  link: "#"
+};
+---
+
+<section class="py-section-gap px-gutter bg-surface-bright" id="blog">
+  <div class="max-w-container mx-auto">
+    <!-- Encabezado -->
+    <div class="text-center mb-16">
+      <span class="font-label-md text-label-md text-primary tracking-widest uppercase block mb-3">INSIGHTS & ARTÍCULOS</span>
+      <h2 class="font-headline-xl text-headline-xl text-on-surface">
+        <span class="text-primary">Últimos Artículos</span> e Insights
+        <br class="hidden sm:block" />
+        del Sector
+      </h2>
+    </div>
+
+    <!-- Grilla de Artículos -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
+      
+      <!-- Columna Izquierda (Artículo Destacado) -->
+      <article class="lg:col-span-5 flex flex-col group cursor-pointer">
+        <a href={featuredPost.link} class="block overflow-hidden rounded-2xl mb-6 aspect-[4/5] bg-surface-container">
+          <img 
+            src={featuredPost.image} 
+            alt={featuredPost.title} 
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+            loading="lazy"
+          />
+        </a>
+        <span class="font-label-sm text-label-sm text-primary tracking-wider uppercase mb-3 block font-bold">
+          {featuredPost.category}
+        </span>
+        <h3 class="font-headline-lg text-headline-lg text-on-surface mb-4 group-hover:text-primary transition-colors duration-300 leading-tight">
+          <a href={featuredPost.link} class="outline-none">
+            {featuredPost.title}
+          </a>
+        </h3>
+        <p class="font-body-md text-body-md text-on-surface-variant mb-5 line-clamp-3">
+          {featuredPost.excerpt}
+        </p>
+        <div class="font-label-sm text-label-sm text-on-surface-variant/70 flex items-center gap-2 mt-auto">
+          <span>{featuredPost.date}</span>
+          <span>•</span>
+          <span>{featuredPost.comments}</span>
+        </div>
+      </article>
+
+      <!-- Columna Derecha (Artículos Secundarios) -->
+      <div class="lg:col-span-7 flex flex-col gap-10 lg:gap-12">
+        
+        <!-- Fila Superior: 2 Artículos Pequeños Lado a Lado -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+          {secondaryPosts.map(post => (
+            <article class="flex flex-col group cursor-pointer">
+              <a href={post.link} class="block overflow-hidden rounded-2xl mb-4 aspect-square bg-surface-container">
+                <img 
+                  src={post.image} 
+                  alt={post.title} 
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                  loading="lazy"
+                />
+              </a>
+              <span class="font-label-sm text-label-sm text-primary tracking-wider uppercase mb-2 block font-bold">
+                {post.category}
+              </span>
+              <h4 class="font-headline-md text-[20px] leading-snug text-on-surface mb-3 group-hover:text-primary transition-colors duration-300 line-clamp-2">
+                <a href={post.link} class="outline-none">
+                  {post.title}
+                </a>
+              </h4>
+              <div class="font-label-sm text-label-sm text-on-surface-variant/70 flex items-center gap-2 mt-auto">
+                <span>{post.date}</span>
+                <span>•</span>
+                <span>{post.comments}</span>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <!-- Fila Inferior: 1 Artículo Horizontal Ancho -->
+        <article class="flex flex-col group cursor-pointer">
+          <a href={horizontalPost.link} class="block overflow-hidden rounded-2xl mb-4 aspect-[21/9] bg-surface-container">
+            <img 
+              src={horizontalPost.image} 
+              alt={horizontalPost.title} 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+              loading="lazy"
+            />
+          </a>
+          <span class="font-label-sm text-label-sm text-primary tracking-wider uppercase mb-2 block font-bold">
+            {horizontalPost.category}
+          </span>
+          <h4 class="font-headline-md text-headline-md text-on-surface mb-3 group-hover:text-primary transition-colors duration-300 line-clamp-2">
+            <a href={horizontalPost.link} class="outline-none">
+              {horizontalPost.title}
+            </a>
+          </h4>
+          <div class="font-label-sm text-label-sm text-on-surface-variant/70 flex items-center gap-2">
+            <span>{horizontalPost.date}</span>
+            <span>•</span>
+            <span>{horizontalPost.comments}</span>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </div>
+</section>
