@@ -15,8 +15,8 @@
           Recibe contenido exclusivo sobre desarrollo web moderno, optimización de rendimiento y diseño de producto.
         </p>
       </div>
-      <form class="lg:col-span-5 w-full max-w-md lg:ml-auto flex flex-col sm:flex-row gap-3 relative">
-        <div class="relative w-full flex-1">
+      <form class="lg:col-span-5 w-full max-w-md lg:ml-auto grid grid-cols-1 sm:grid-cols-3 gap-3 relative">
+        <div class="relative sm:col-span-2">
           <input 
             type="email" 
             placeholder="Introduce tu correo electrónico" 
@@ -26,7 +26,7 @@
         </div>
         <button 
           type="submit" 
-          class="px-8 py-4 bg-primary text-white font-label-md text-label-md rounded-full hover:bg-primary-container transition-all duration-300 shadow-soft cursor-pointer whitespace-nowrap"
+          class="sm:col-span-1 px-6 py-4 bg-primary text-white font-label-md text-label-md rounded-full hover:bg-primary-container transition-all duration-300 shadow-soft cursor-pointer text-center whitespace-nowrap"
         >
           Suscribirse
         </button>
@@ -34,14 +34,14 @@
     </div>
 
     <!-- Fila Central: Grilla de Enlaces -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
       
-      <!-- Columna 1: Info Marca (4 cols) -->
-      <div class="lg:col-span-4 flex flex-col gap-6">
+      <!-- Columna 1: Info Marca -->
+      <div class="flex flex-col gap-6">
         <span class="text-headline-md font-headline-md text-on-surface font-black">
           Cortez Web
         </span>
-        <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed max-w-sm">
+        <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
           Creamos experiencias digitales y aplicaciones web de alto rendimiento orientadas a la conversión y la excelencia visual.
         </p>
         <div class="flex items-center gap-3">
@@ -72,8 +72,8 @@
         </div>
       </div>
 
-      <!-- Columna 2: Servicios (2 cols) -->
-      <div class="lg:col-span-2 lg:ml-auto flex flex-col gap-6">
+      <!-- Columna 2: Servicios -->
+      <div class="flex flex-col gap-6 lg:pl-12">
         <h4 class="font-label-md text-label-md text-primary tracking-wider uppercase font-bold">
           Servicios
         </h4>
@@ -101,8 +101,8 @@
         </ul>
       </div>
 
-      <!-- Columna 3: Compañía (2 cols) -->
-      <div class="lg:col-span-2 lg:ml-auto flex flex-col gap-6">
+      <!-- Columna 3: Compañía -->
+      <div class="flex flex-col gap-6 lg:pl-12">
         <h4 class="font-label-md text-label-md text-primary tracking-wider uppercase font-bold">
           Compañía
         </h4>
@@ -135,8 +135,8 @@
         </ul>
       </div>
 
-      <!-- Columna 4: Contacto (4 cols) -->
-      <div class="lg:col-span-4 lg:ml-auto flex flex-col gap-6">
+      <!-- Columna 4: Contacto -->
+      <div class="flex flex-col gap-6">
         <h4 class="font-label-md text-label-md text-primary tracking-wider uppercase font-bold">
           Contacto
         </h4>
